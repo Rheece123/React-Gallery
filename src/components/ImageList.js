@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useFetch from '../hooks/useFetch';
 import ImageCard from './ImageCard';
 
 const ImageList = () => {
-	const [images, setImages] = useState([]);
-
-	useEffect(() => {
-		const fetchImages = async () => {
-			const { data } = await axios.get('http://localhost:8000/images');
-			setImages(data);
-		};
-
-		fetchImages();
-	}, []);
+	const images = useFetch('http://localhost:8000/images');
 
 	return (
 		<section id="blog-articles">

@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 import axios from 'axios';
 
 const ImageDetail = () => {
-	const [image, setImage] = useState([]);
 	const { id } = useParams();
 	const history = useHistory();
+	const image = useFetch(`http://localhost:8000/images/${id}`);
 	const { url, meta, description, date } = image;
-
-	useEffect(() => {
-		const fetchImage = async () => {
-			const { data } = await axios.get(`http://localhost:8000/images/${id}`);
-			setImage(data);
-		};
-
-		fetchImage();
-	}, [id]);
 
 	const handleDeleteClick = async id => {
 		try {
