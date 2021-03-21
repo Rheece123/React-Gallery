@@ -9,16 +9,7 @@ const ImageList = () => {
 			<div className="container">
 				<div className="articles-container">
 					{images.map(image => {
-						return (
-							<ImageCard
-								key={image.id}
-								id={image.id}
-								url={image.url}
-								description={image.description}
-								meta={image.meta}
-								date={image.date}
-							/>
-						);
+						return <ImageCard key={image._id} image={image} />;
 					})}
 				</div>
 			</div>
