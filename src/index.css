@@ -217,6 +217,10 @@ h6 {
 	height: 200px;
 }
 
+.create .react-datepicker-wrapper {
+	display: block;
+}
+
 /* Media Queries */
 
 /* Smartphones */

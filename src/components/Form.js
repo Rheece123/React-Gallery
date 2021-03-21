@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 import axios from 'axios';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Form = () => {
 	const [url, setURL] = useState('');
 	const [description, setDescription] = useState('');
 	const [meta, setMeta] = useState('');
-	const [date, setDate] = useState('');
+	const [date, setDate] = useState(new Date());
 	const history = useHistory();
 
 	const handleSubmit = async e => {
@@ -52,12 +54,12 @@ const Form = () => {
 					required
 				/>
 				<label htmlFor="date">Image Date:</label>
-				<input
-					type="text"
+				<DatePicker
 					className="form-inputs"
 					id="date"
-					value={date}
-					onChange={e => setDate(e.target.value)}
+					onChange={setDate}
+					selected={date}
+					dateFormat="eeee d MMMM yyyy"
 					required
 				/>
 				<button className="btn btn-primary">Add Image</button>
