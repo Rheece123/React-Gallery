@@ -8,6 +8,9 @@ const ImageDetail = () => {
 	const image = useFetch(`http://localhost:5000/images/${id}`);
 	const { url, meta, description, date } = image;
 
+	// Remove timestamp from MongoDB
+	const formattedDate = date ? date.split('T')[0] : '';
+
 	const handleDeleteClick = async id => {
 		try {
 			await axios.delete(`http://localhost:5000/images/${id}`);
@@ -24,7 +27,7 @@ const ImageDetail = () => {
 					<img src={url} alt={meta} />
 				</div>
 				<div className="meta-info">
-					<p>{date}</p>
+					<p>{formattedDate}</p>
 					<button className="btn btn-primary" onClick={() => handleDeleteClick(id)}>
 						Delete Image
 					</button>

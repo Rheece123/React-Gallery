@@ -4,7 +4,7 @@ const ImageCard = ({ image }) => {
 	const { _id, url, description, meta, date } = image;
 
 	// Remove timestamp from MongoDB
-	const formattedDate = date.split('T')[0];
+	const formattedDate = date ? date.split('T')[0] : '';
 
 	return (
 		<article className="card">
