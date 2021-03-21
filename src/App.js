@@ -10,15 +10,9 @@ const App = () => {
 		<Router>
 			<Navbar />
 			<Switch>
-				<Route exact path="/">
-					<ImageList />
-				</Route>
-				<Route exact path="/add">
-					<Form />
-				</Route>
-				<Route exact path="/images/:id">
-					<ImageDetail />
-				</Route>
+				<Route exact path="/" component={ImageList} />
+				<Route exact path="/add" component={Form} />
+				<Route exact path="/images/:id" component={ImageDetail} />
 			</Switch>
 		</Router>
 	);
