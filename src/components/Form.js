@@ -16,7 +16,7 @@ const Form = () => {
 
 		const image = { url, description, meta, date };
 		try {
-			await axios.post('http://localhost:8000/images', image);
+			await axios.post('http://localhost:5000/images/add', image);
 			history.push('/');
 		} catch (error) {
 			console.error(error);
@@ -59,7 +59,7 @@ const Form = () => {
 					id="date"
 					onChange={setDate}
 					selected={date}
-					dateFormat="eeee d MMMM yyyy"
+					dateFormat="d MMMM yyyy"
 					required
 				/>
 				<button className="btn btn-primary">Add Image</button>
