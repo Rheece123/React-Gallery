@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import ImageList from './components/ImageList';
 import ImageDetail from './components/ImageDetail';
 import Form from './components/Form';
+import EditForm from './components/EditForm';
 import './index.css';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
 			<Switch>
 				<Route exact path="/" component={ImageList} />
 				<Route exact path="/add" component={Form} />
+				<Route exact path="/update/:id" component={EditForm} />
 				<Route exact path="/images/:id" component={ImageDetail} />
 			</Switch>
 		</Router>

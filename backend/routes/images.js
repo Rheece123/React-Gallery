@@ -19,6 +19,21 @@ router.route('/:id').get(async (req, res) => {
 	}
 });
 
+router.route('/update/:id').put(async (req, res) => {
+	try {
+		const image = await Image.findById(req.params.id);
+		image.url = req.body.url;
+		image.description = req.body.description;
+		image.meta = req.body.meta;
+		image.date = Date.parse(req.body.date);
+
+		await image.save();
+		res.json('Image updated');
+	} catch (err) {
+		res.status(400).json(`Error: ${err}`);
+	}
+});
+
 router.route('/:id/').delete(async (req, res) => {
 	try {
 		await Image.findByIdAndDelete(req.params.id);

@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import axios from 'axios';
 
@@ -28,7 +28,11 @@ const ImageDetail = () => {
 				</div>
 				<div className="meta-info">
 					<p>{formattedDate}</p>
-					<button className="btn btn-primary" onClick={() => handleDeleteClick(id)}>
+					<Link to={`/update/${id}`} className="btn btn-success">
+						Edit Image
+					</Link>
+
+					<button className="btn btn-danger" onClick={() => handleDeleteClick(id)}>
 						Delete Image
 					</button>
 				</div>
