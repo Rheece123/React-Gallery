@@ -199,23 +199,23 @@ h6 {
 }
 
 /* Add Image Form */
-.create {
+.form {
 	max-width: 400px;
 	margin: 0 auto;
 	text-align: center;
 }
 
-.create h2 {
+.form h2 {
 	margin-top: 1rem;
 	font-size: 30px;
 }
 
-.create label {
+.form label {
 	text-align: left;
 	display: block;
 }
 
-.create .form-inputs {
+.form .form-inputs {
 	width: 100%;
 	padding: 6px 10px;
 	margin: 10px 0;
@@ -224,11 +224,11 @@ h6 {
 	display: block;
 }
 
-.create textarea {
+.form textarea {
 	height: 200px;
 }
 
-.create .react-datepicker-wrapper {
+.form .react-datepicker-wrapper {
 	display: block;
 }
 
@@ -250,7 +250,7 @@ h6 {
 		font-size: 1rem;
 	}
 
-	.create {
+	.form {
 		max-width: 300px;
 	}
 }
