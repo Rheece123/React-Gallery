@@ -2,16 +2,20 @@ import useFetch from '../hooks/useFetch';
 import ImageCard from './ImageCard';
 
 const ImageList = () => {
-	const images = useFetch('http://localhost:5000/images');
+	let imageList = useFetch('http://localhost:5000/images');
+
+	if (imageList.length) {
+		imageList = imageList.map(image => {
+			return <ImageCard key={image._id} image={image} />;
+		});
+	} else {
+		imageList = <h1>No Images to show</h1>;
+	}
 
 	return (
 		<section id="blog-articles">
 			<div className="container">
-				<div className="articles-container">
-					{images.map(image => {
-						return <ImageCard key={image._id} image={image} />;
-					})}
-				</div>
+				<div className="articles-container">{imageList}</div>
 			</div>
 		</section>
 	);
